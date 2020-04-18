@@ -1,6 +1,6 @@
 // event listener on the button to start the game
-var startButton = $("#start");
-var myTimer =$("#timer");
+// var startButton = $("#start");
+// var myTimer =$("#timer");
 
 var questions = [
     {
@@ -17,10 +17,10 @@ var questions = [
     {
         question2: "What is considered to be the most commonly used programming language in the world?:",
         answers: [
-            choiceA = "HTML",
-            choiceB = "Ruby",
-            choiceC = "Swift",
-            choiceD = "Javascript"
+             "HTML",
+             "Ruby",
+             "Swift",
+             "Javascript"
         ],
         correctAnswer: "Javascript"
     },
@@ -37,7 +37,7 @@ var questions = [
     {
         question4: "What kind of statement is used to execute actions based on a trigger or condition?:",
         answers: [
-              "Boolean variable",
+             "Boolean variable",
              "Fired event",
              "Regular Expression",
              "Conditional Statement",
@@ -47,20 +47,20 @@ var questions = [
     {
         question5: "Where is the JavaScript placed inside an HTML document or page?",
         answers: [
-            choiceA = "in the <body> and <head> sections",
-            choiceB = "In the <meta> section",
-            choiceC = "In the <footer> section",
-            choiceD = "In the <title> section"
+             "in the <body> and <head> sections",
+             "In the <meta> section",
+             "In the <footer> section",
+             "In the <title> section"
         ],
         correctAnswer: "in the <body> and <head> sections"
     },
     {
         question6: "In JavaScript, what element is used to store and manipulate text usually in multiples?",
         answers: [
-            choiceA = "Variables",
-            choiceB = "Strings",
-            choiceC = "Function",
-            choiceD = "Arrays",
+             "Variables",
+             "Strings",
+             "Function",
+             "Arrays",
         ],
         correctAnswer: "Arrays"
 
@@ -68,10 +68,10 @@ var questions = [
 ]
 
 
-$(startButton).on("click", function() {
 
-renderQuestion()
-})
+
+
+
 
 /* Starting the game */
 
@@ -83,34 +83,55 @@ renderQuestion()
 // if variable reaches 0, clear the timer, example is in 4.08
 // Make sure it works for like 10 seconds and doesn't go below 0, ex no negatives
 // clear the timer when it hits 0
-var myTimer;
-   
-function clock() {
-     myTimer = setInterval(myClock, 1000);
-     var c = 80;
 
-     function myClock() {
-       document.getElementById("timer").innerHTML = --c;
-       if (c == 0) {
-         clearInterval(myTimer);
-         
-       }
-     }
-   }
+var startButton = document.querySelector("#start");
+
+var myTimer = document.querySelector("#timer");
+
+var myQuiz = document.querySelector("#quiz");
+
+var mySection = document.querySelector("#instructions");
+
+
+
+startButton.addEventListener("click", function() {
+    
+    setTime()
+    renderQuestion()
+    mySection.setAttribute("style", "display:none")
+});
+
+var secondsLeft = 60;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    myTimer.textContent = secondsLeft
+    
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      
+    }
+
+  }, 1000);
+}
+
+
  
 // clear the middle section and display first question
 
 function renderQuestion(){
     var questionName=("<p>")
     questionName = questions[0].question1
-    for(var i=0; i<questions[0].answers.length; i++)
-    {
+    for(var i=0; i<questions[0].answers.length; i++){
         var answerOptions=document.createElement("button")
         answerOptions.textContent = questions[0].answers[i]
         console.log(questions[0].answers[i])
+        quiz.appendChild(answerOptions)
     }
     
-    $("#quiz").text(questionName).append(answerOptions)
+    
+    
 
 }
 
