@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coding Quiz Challenge</title>
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
   <a href="highscores.html">Highscores</a>
+
+  <!-- Link to the top left to go to the high scores page -->
+    <!-- Timer on the page that's initially set to 0 -->
+    <!-- Text that explains the game -->
+    <!-- Button that starts the game -->
+
+    
   
- 
- 
-  <section style = text-align:center>
+  <section id= "quiz" style = text-align:center>
 
   <h1>Coding Quiz Challenge!</h1>
   <p>Try to answer the following code related questions within the time limit. Keep in mind</p>
     
     <p>that incorrect answers will penalize your score/ time by ten seconds!</p>
     
-    <p id="timer">80</p>
-    <button onclick="clock(); document.getElementById('timer').innerHTML='80';">Start quiz</button>
-    
-  </section> 
-    
-    
-    
-    
-    
-    
-    
+   </section>  
+
+   <button id="start">Start Quiz</button>
+
+  <p1 class="time"></p1>
+  <div id="timer">0</div>
+
+  <!-- <button onclick="clock(); document.getElementById('timer').innerHTML='80';">Start quiz</button>
+     -->
     <script src="script.js"></script>
     
 </body>
