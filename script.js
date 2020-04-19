@@ -4,7 +4,7 @@
 
 var questions = [
     {
-        question1: "Commonly used data types DO NOT include:",
+        question: "Commonly used data types DO NOT include:",
 
         answers: [
              "strings",
@@ -15,7 +15,7 @@ var questions = [
         correctAnswer: "alerts"
     },
     {
-        question2: "What is considered to be the most commonly used programming language in the world?:",
+        question: "What is considered to be the most commonly used programming language in the world?:",
         answers: [
              "HTML",
              "Ruby",
@@ -25,7 +25,7 @@ var questions = [
         correctAnswer: "Javascript"
     },
     {
-        question3: "In JavaScript, what element is used to store multiple values in a single variable?",
+        question: "In JavaScript, what element is used to store multiple values in a single variable?",
         answers: [
              "Functions",
              "Variables",
@@ -35,7 +35,7 @@ var questions = [
         correctAnswer: "Arrays"
     },
     {
-        question4: "What kind of statement is used to execute actions based on a trigger or condition?:",
+        question: "What kind of statement is used to execute actions based on a trigger or condition?:",
         answers: [
              "Boolean variable",
              "Fired event",
@@ -45,7 +45,7 @@ var questions = [
         correctAnswer: "Conditional statement"
     },
     {
-        question5: "Where is the JavaScript placed inside an HTML document or page?",
+        question: "Where is the JavaScript placed inside an HTML document or page?",
         answers: [
              "in the <body> and <head> sections",
              "In the <meta> section",
@@ -55,7 +55,7 @@ var questions = [
         correctAnswer: "in the <body> and <head> sections"
     },
     {
-        question6: "In JavaScript, what element is used to store and manipulate text usually in multiples?",
+        question: "In JavaScript, what element is used to store and manipulate text usually in multiples?",
         answers: [
              "Variables",
              "Strings",
@@ -99,6 +99,8 @@ startButton.addEventListener("click", function() {
     setTime()
     renderQuestion()
     mySection.setAttribute("style", "display:none")
+    startButton.setAttribute("style", "display:none")
+    
 });
 
 var secondsLeft = 60;
@@ -109,6 +111,7 @@ function setTime() {
     myTimer.textContent = secondsLeft
     
     if(secondsLeft === 0) {
+    myTimer.textContent=("Sorry time out!")
       clearInterval(timerInterval);
       
     }
@@ -121,8 +124,11 @@ function setTime() {
 // clear the middle section and display first question
 
 function renderQuestion(){
-    var questionName=("<p>")
-    questionName = questions[0].question1
+    
+    var question=document.createElement("p")
+    question.textContent = questions[0].question
+    
+    quiz.appendChild(question)
     for(var i=0; i<questions[0].answers.length; i++){
         var answerOptions=document.createElement("button")
         answerOptions.textContent = questions[0].answers[i]
@@ -130,9 +136,19 @@ function renderQuestion(){
         quiz.appendChild(answerOptions)
     }
     
-    
-    
+}
 
+function selectAnswer(){
+    
+    if (questions[i].correctAnswer[i] == answerOptions[i]) {
+        console.log("checking")
+        score++;
+        alert("Correct!")
+        renderQuestion();
+    }else{ 
+        alert("Wrong!")
+        secondsLeft - 10;
+    }
 }
 
 // startButton.addEventListener("click",startQuiz);
