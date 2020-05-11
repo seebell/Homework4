@@ -3,40 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="quizstyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Coding Quiz Challenge</title>
     
     
 </head>
 <body>
-  <a href="highscores.html">Highscores</a>
+  <div id="navbarId">
+    <nav class="navbar navbar-light bg-light"> 
+        <p id= "viewHighScore" class="navbar-brand" ><button type="button" button id="HighscoresButton" class="btn btn-link">View HighScores</button></p>
+        
+        <p id= "time" class = "float-right"> Time : 0 </p>
+    </nav>
+</div>
 
-  <!-- Link to the top left to go to the high scores page -->
-    <!-- Timer on the page that's initially set to 0 -->
-    <!-- Text that explains the game -->
-    <!-- Button that starts the game -->
+<div class="container">
+  <div class="row">
+      <div class="col-lg-8 col-sm-12 col-xs-12 mx-auto">
+              <div id="front_page-container" class="px-5 py-5 bg-white border">
+                  <h2 class="text-center"> Coding Quiz Challenge</h2>
+                  <hr>
+                  <h6 class="text-justify"> 
+                    Try to answer the following code related questions within the time limit. Keep in mind
+                    that incorrect answers will penalize your score/ time by ten seconds!     
+                  </h6>
+                  <hr>
+                  <button id="start_quiz-btn" class="start_quiz-btn btn btn-info">Start Quiz</button>
+              </div>
+              <div id="question-container" class="px-5 py-5 bg-white border hide">
+                  <div id="question">Question</div><br>
+                  <div id="answer-buttons" class="btn-grid">
+                      <button id="button1"  onClick="checkAnswer('button1')" class="btn">1.</button>
+                      <button id="button2"  onClick="checkAnswer('button2')" class="btn">2.</button>
+                      <button id="button3"  onClick="checkAnswer('button3')" class="btn">3.</button>
+                      <button id="button4"  onClick="checkAnswer('button4')" class="btn">4.</button>
+                  </div>
+                  <div id="check" class="hide">
+                      <hr>
+                      <p id="check_display"> </p>
+                  </div>
+              </div>
+              <div id="middlePageContainer" class="hide">
+                  <h2> All Done ! </h2>
+                  <p> </p>
+                  <h6 id="finalScore"> Your final score is </h6>
+                   Enter Initials : <input id="initials" type="text" placeholder="Enter Initials" name = "Initials">
+                   <button type="button" id="submitButton" class="btn btn-info">Submit</button>
+              </div>
+              <div id="lastPageContainer" class="text-center vertical-center hide">
+                <h3 id="lastScore"> High Scores </h3>
+                    <div id="scoreBoard"> </div>
+                        <button id="goBack" type="button" class="btn btn-info">Go Back</button>
+                        <button id="clearHighScores" type="button" class="btn btn-info">Clear HighScores</button>
+            </div>
+              
 
-    
-  
-  <section id= "instructions" style = "text-align:center">
+      </div>
+  </div>
+</div> 
 
-  <h1>Coding Quiz Challenge!</h1>
-  <p>Try to answer the following code related questions within the time limit. Keep in mind</p>
-    
-    <p>that incorrect answers will penalize your score/ time by ten seconds!</p>
-    
-   </section>  
-
-   <div id= "quiz"></div>
-
-   <button id="start">Start Quiz</button>
-
-  <p1 class="time"></p1>
-  <div id="timer">0</div>
-
-  <div id="score">score</div>
-
-  
     <script src="script.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
 </html>
